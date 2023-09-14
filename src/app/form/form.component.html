@@ -1,0 +1,176 @@
+
+
+
+
+<nav>
+    <div class="logo">EVENT MANAGEMENT</div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a routerLink="/form">Form</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a routerLink="/formget">Form read</a></li>
+
+    
+    </ul>
+  </nav>
+  
+
+   <body>    
+<form #r="ngForm" (ngSubmit)="Insert(r)">
+    <div class="col-md-4" >
+      <label for="inputState" class="form-label" >Organized By:<span style="color:black"><b>*</b></span></label>
+      <select id="inputState" class="form-select" name="orgBy" ngModel>
+        <option selected>Choose...</option>
+        <option>CSE</option>
+        <OPtion>ECE</OPtion>
+        <OPtion>EEE</OPtion>
+        <OPtion>IT</OPtion>
+        <OPtion>AI</OPtion>
+        <OPtion>CIVIL</OPtion>
+        <OPtion>MECH</OPtion>
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <label for="inputCity" class="form-label" >Program Coordinated By:<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" ngModel name="prgCoordinator">
+    </div>
+   
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">Type of Program<span style="color:black"><b>*</b></span></label>
+      <select id="inputState" class="form-select" name="prgType"  ngModel>
+        <option selected>Choose...</option>
+        <option>EXPERT TALK</option>
+        <option>EXPOSURE VISIT</option>
+        <option>MENTORINE SESSION</option>
+        <option>SEMINAR</option>
+        <option>WORKSHOP</option>
+        <option>BOOTCAMP</option>
+        <option>DEMO DAY</option>
+        <option>EXHIBITION</option>
+        <option>CHALLENGE</option>
+        <option>HACKTHON</option>
+        <option>TECH FEST</option>
+        <option>FDP</option>
+        <option>STTP</option>
+        
+      </select>
+    </div>
+    <div class="col-md-2">
+  
+    </div>
+  
+      
+  
+    <div class="col-md-4">
+      <label for="inputState" class="form-label" >Program Theme<span style="color:black"><b>*</b></span></label>
+      <select id="inputState" class="form-select" name="prgTheme" ngModel>
+        <option></option>
+    <option>TECHNOLOGY KNOWLEDGE</option>
+    <option>INNOVATION</option>
+    <option>DESIGN THINKING</option>
+    <option>ENTREPRENEUR</option>
+    <option>START UP</option>
+    <option>COURSE RELATED</option>
+    <option>PLACEMENTS</option>
+  
+      </select>
+    </div>
+    <div class="col-2"></div>
+    
+    <div class="col-2">
+      <label for="inputAddress" class="form-label">Start Date</label>
+      <input type="text" class="form-control" id="inputAddress"  ngModel name="startDate">
+    </div>
+    
+    <div class="col-2">
+      <label for="inputAddress" class="form-label">End Date</label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="endDate">
+    </div>
+    
+    <div class="col-2">
+      <label for="inputAddress" class="form-label">Duration(in hrs)</label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="prgDuration">
+    </div>
+    
+    <div class="col-12"></div>
+  
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Number of students participated<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="num_std">
+    </div>
+    <div class="col-3"></div>
+  
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Number of Faculty participated<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="num_faculty">
+    </div>
+  
+  
+    <div class="col-3"></div>
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Number of External person participated<span style="color:black"><b>*</b></span></label>
+      <input type="number" class="form-control" id="inputAddress" ngModel name="num_externals">
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Number of Resource persons participated<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="num_rsrc_person">
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Expenditure Amount<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="(in words)" name="message" ngModel name="amount">
+    </div>
+    
+    <div class="col-3"></div>
+    <div class="col-md-2">
+      <label for="inputState" class="form-label">Mode of Session<span style="color:black"><b>*</b></span></label>
+      <select id="inputState" class="form-select" name="mode_session" ngModel>
+        <option></option>
+        <option>online</option>
+        <option>offline</option>
+        <option>dual mode</option>
+  
+      </select>
+    </div>
+    
+  <div class="col-3"></div>
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Remarks</label>
+      <textarea rows="5" class="form-control" id="inputAddress" name="remarks" ngModel  > </textarea>
+    </div>
+    
+   
+    <h3>Over view</h3>
+  
+    <div class="col-5">
+      <label for="inputAddress" class="form-label">Objective</label>
+      <input type="text" class="form-control" id="inputAddress" ngModel name="objective">
+    </div>
+  
+    <div class="col-3"></div>
+  
+    <div class="col-4"></div>
+    <div class="col-5">
+      <label for="inputAddress" class="form-label">Benifits obtained in terms of Learning/knowledge/Skills </label>
+      <textarea rows="5" class="form-control" id="inputAddress" name="benifits" ngModel > </textarea>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <label for="inputAddress" class="form-label">Link of report<span style="color:black"><b>*</b></span></label>
+      <input type="text" class="form-control" id="inputAddress"
+       ngModel name="images_url">
+    </div>
+  
+          
+          <div class="col-12">
+            <input type="submit" class="btn btn-primary">
+          </div>
+</form>
+</body>

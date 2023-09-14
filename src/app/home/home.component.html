@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Navigation Menu</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">EVENT MANAGEMENT</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a class="active" routerLink="/home">Home</a></li>
+            <li><a routerLink="/form">Form</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/gallery">Gallery</a></li>
+            <li><a routerLink="/formget">Form read</a></li>
+
+           
+        </ul>
+    </nav><br>
+    <br>
+    <br>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <form #r="ngForm" (ngSubmit)="Read1(r)">
+                        <input type="text" name="orgBy" class="form-control" placeholder="Search by Event Organized"
+                            ngModel>
+                        <div class="input-group-append">
+                            <!-- <span class="input-group-text"><i class="fas fa-search"></i></span> -->
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <form #r="ngForm" (ngSubmit)="Read2(r)">
+                        <input type="text" name="prg" class="form-control" placeholder="Search by Event Organized"
+                            ngModel>
+                        <div class="input-group-append">
+                            <!-- <span class="input-group-text"><i class="fas fa-search"></i></span> -->
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+              
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="input-group">
+                    <form #r="ngForm" (ngSubmit)="Read1(r)">
+                        <input type="text" name="orgBy" class="form-control" placeholder="Search by Event Organized"
+                            ngModel>
+                        <div class="input-group-append">
+                            <!-- <span class="input-group-text"><i class="fas fa-search"></i></span> -->
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+
+                    </form>
+                </div></div>
+
+
+
+
+                <div class="div" *ngIf="GotResult">
+
+                    <p>{{Results[0]}}</p>
+                    <p>{{Results[1]}}</p>
+                    <p>{{Results[2]}}</p>
+                </div>

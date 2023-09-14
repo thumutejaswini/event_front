@@ -1,0 +1,101 @@
+
+
+<div class="d-block mx-auto w-50">
+    <label for="orgBy">orgBy</label>
+    <input type="text" name="orgBy" id="orgBy" class="form-control" [(ngModel)]="orgBy"
+       >
+    <div class="d-flex my-2">
+        <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+        <input type="submit" [value]="'Get '+ orgBy" class="btn btn-primary mx-1" (click)="Read(orgBy)">
+    </div>
+    <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">orgBy</th>
+            <th scope="col">prgCoordinator</th>
+            <th scope="col">prgType</th>
+            <th scope="col">prgTheme</th>
+            <th scope="col">startDate</th>
+            <th scope="col">endDate</th> 
+            <th scope="col">prgDuration</th> 
+            <th scope="col">num_std</th>
+            <th scope="col">num_faculty</th>
+            <th scope="col">num_externals</th>
+            <th scope="col"> num_rsrc_person</th>
+            <th scope="col">amount</th>
+            <th scope="col"> mode_session</th>
+            <th scope="col">remarks</th>
+            <th scope="col">objective</th>
+            <th scope="col">benifits</th>
+            <th scope="col">images_url</th>
+            
+            </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Data of Results">
+            <th scope="row">{{Data[0]}}</th>
+            <th>{{Data[1]}}</th>
+            <th>{{Data[2]}}</th>
+            <th>{{Data[3]}}</th>
+            <th>{{Data[4]}}</th>
+            <th>{{Data[5]}}</th>
+            <th>{{Data[6]}}</th>
+            <th>{{Data[7]}}</th>
+            <th>{{Data[8]}}</th>
+            <th>{{Data[9]}}</th>
+            <th>{{Data[10]}}</th>
+            <th>{{Data[11]}}</th>
+            <th>{{Data[12]}}</th>
+            <th>{{Data[13]}}</th>
+            <th>{{Data[14]}}</th>
+            <th>{{Data[15]}}</th>
+            <th>{{Data[16]}}</th>
+        
+
+            <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+            </td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                    Update
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="orgBy" id="orgBy" placeholder="orgBy" class="form-control my-1" [(ngModel)]="UpdatedUser.orgBy">
+          <input type="text" name="prgCoordinator" id="prgCoordinator" placeholder="prgCoordinator" class="form-control my-1" [(ngModel)]="UpdatedUser.prgCoordinator">
+          <input type="text" name="prgType" id="prgType" placeholder="prgType" class="form-control my-1" [(ngModel)]="UpdatedUser.prgType">
+          <input type="text" name="prgTheme" id="prgTheme" placeholder="prgTheme" class="form-control my-1" [(ngModel)]="UpdatedUser.prgTheme">
+          <input type="text" name="startDate" id="startDate" placeholder="startDate" class="form-control my-1" [(ngModel)]="UpdatedUser.startDate">
+          <input type="text" name="endDate" id="endDate" placeholder="endDate" class="form-control my-1" [(ngModel)]="UpdatedUser.endDate">
+          <input type="text" name="prgDuration" id="prgDuration" placeholder="prgDuration" class="form-control my-1" [(ngModel)]="UpdatedUser.prgDuration">
+          <input type="text" name="num_std" id="num_std" placeholder="num_std" class="form-control my-1" [(ngModel)]="UpdatedUser.num_std">
+          <input type="text" name="num_faculty" id="num_faculty" placeholder="num_faculty" class="form-control my-1" [(ngModel)]="UpdatedUser.num_faculty">
+          <input type="text" name="num_externals" id="num_externals" placeholder="fee" class="form-control my-1" [(ngModel)]="UpdatedUser.num_externals">
+          <input type="text" name="num_rsrc_person" id="num_rsrc_person" placeholder="num_rsrc_person" class="form-control my-1" [(ngModel)]="UpdatedUser.num_rsrc_person">
+          <input type="text" name="amount" id="amount" placeholder="amount" class="form-control my-1" [(ngModel)]="UpdatedUser.amount">
+          <input type="text" name="mode_session" id="mode_session" placeholder="mode_session" class="form-control my-1" [(ngModel)]="UpdatedUser.mode_session">
+          <input type="text" name="remarks" id="remarks" placeholder="remarks" class="form-control my-1" [(ngModel)]="UpdatedUser.remarks">
+          <input type="text" name="objective" id="objective" placeholder="objective" class="form-control my-1" [(ngModel)]="UpdatedUser.objective">
+          <input type="text" name="benifits" id="benifits" placeholder="benifits" class="form-control my-1" [(ngModel)]="UpdatedUser.benifits">
+          <input type="text" name="images_url" id="images_url" placeholder="images_url" class="form-control my-1" [(ngModel)]="UpdatedUser.images_url">
+         
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(orgBy,UpdatedUser)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <router-outlet></router-outlet> -->
