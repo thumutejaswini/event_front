@@ -20,13 +20,15 @@
             <i class="fas fa-bars"></i>
         </label>
         <ul>
-            <li><a class="active" routerLink="/home">Home</a></li>
+            <li><a  routerLink="/home">Home</a></li>
             <li><a routerLink="/form">Form</a></li>
             <li><a routerLink="/about">About</a></li>
             <li><a routerLink="/gallery">Gallery</a></li>
-            <li><a routerLink="/formget">Form read</a></li>
-
-           
+            <li><a routerLink="/buttons">Form read</a></li>
+            <!-- <li><a routerLink="/programtype">Form read</a></li>
+            <li><a routerLink="/programtheme">programtheme</a></li>
+            <li><a routerLink="/startdate">startDate</a></li>
+            <li><a routerLink="/mode_session">mode_session</a></li> -->
         </ul>
     </nav><br>
     <br>
@@ -85,3 +87,6 @@
                     <p>{{Results[1]}}</p>
                     <p>{{Results[2]}}</p>
                 </div>
+
+
+                <router-outlet></router-outlet>

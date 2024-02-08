@@ -2,7 +2,7 @@ export interface register {
     name:string,
     mail:string,
     password:string,
-    birth:string,
+  
     phonenumber:string
 }
 export interface logincredentials{

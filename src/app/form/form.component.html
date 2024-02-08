@@ -1,29 +1,7 @@
-
-
-
-
-<nav>
-    <div class="logo">EVENT MANAGEMENT</div>
-    <input type="checkbox" id="click">
-    <label for="click" class="menu-btn">
-      <i class="fas fa-bars"></i>
-    </label>
-    <ul>
-      <li><a class="active" href="#">Home</a></li>
-      <li><a routerLink="/form">Form</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Gallery</a></li>
-      <li><a routerLink="/formget">Form read</a></li>
-
-    
-    </ul>
-  </nav>
-  
-
-   <body>    
-<form #r="ngForm" (ngSubmit)="Insert(r)">
-    <div class="col-md-4" >
-      <label for="inputState" class="form-label" >Organized By:<span style="color:black"><b>*</b></span></label>
+<form #r="ngForm" action="/submit-form" (ngSubmit)="Insert(r)" method="post">
+  <div class="main-user-info">
+    <div class="user-input-box">
+      <label for="fullName">Organized By:</label>
       <select id="inputState" class="form-select" name="orgBy" ngModel>
         <option selected>Choose...</option>
         <option>CSE</option>
@@ -35,15 +13,9 @@
         <OPtion>MECH</OPtion>
       </select>
     </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-4">
-      <label for="inputCity" class="form-label" >Program Coordinated By:<span style="color:black"><b>*</b></span></label>
-      <input type="text" class="form-control" ngModel name="prgCoordinator">
-    </div>
-   
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">Type of Program<span style="color:black"><b>*</b></span></label>
-      <select id="inputState" class="form-select" name="prgType"  ngModel>
+    <div class="user-input-box">
+      <label for="email">Type of Program</label>
+      <select id="inputState" class="form-select" name="prgType" ngModel>
         <option selected>Choose...</option>
         <option>EXPERT TALK</option>
         <option>EXPOSURE VISIT</option>
@@ -58,119 +30,165 @@
         <option>TECH FEST</option>
         <option>FDP</option>
         <option>STTP</option>
-        
+
       </select>
     </div>
-    <div class="col-md-2">
-  
+    <div class="user-input-box">
+      <label for="username">Program Coordinated By:</label>
+      <input type="text" class="form-control" ngModel name="prgCoordinator">
     </div>
-  
-      
-  
-    <div class="col-md-4">
-      <label for="inputState" class="form-label" >Program Theme<span style="color:black"><b>*</b></span></label>
+
+    <div class="user-input-box">
+      <label for="phoneNumber">Program Theme</label>
       <select id="inputState" class="form-select" name="prgTheme" ngModel>
         <option></option>
-    <option>TECHNOLOGY KNOWLEDGE</option>
-    <option>INNOVATION</option>
-    <option>DESIGN THINKING</option>
-    <option>ENTREPRENEUR</option>
-    <option>START UP</option>
-    <option>COURSE RELATED</option>
-    <option>PLACEMENTS</option>
-  
+        <option>TECHNOLOGY KNOWLEDGE</option>
+        <option>INNOVATION</option>
+        <option>DESIGN THINKING</option>
+        <option>ENTREPRENEUR</option>
+        <option>START UP</option>
+        <option>COURSE RELATED</option>
+        <option>PLACEMENTS</option>
+
       </select>
     </div>
-    <div class="col-2"></div>
-    
-    <div class="col-2">
-      <label for="inputAddress" class="form-label">Start Date</label>
-      <input type="text" class="form-control" id="inputAddress"  ngModel name="startDate">
+    <div class="user-input-box">
+      <label for="password">Start Date</label>
+      <input type="date" class="form-control" id="startdate" ngModel name="startDate">
     </div>
-    
-    <div class="col-2">
-      <label for="inputAddress" class="form-label">End Date</label>
-      <input type="text" class="form-control" id="inputAddress" ngModel name="endDate">
+    <div class="user-input-box">
+      <label for="password">End Date</label>
+      <input type="date" class="form-control" id="inputAddress" ngModel name="endDate">
     </div>
-    
-    <div class="col-2">
-      <label for="inputAddress" class="form-label">Duration(in hrs)</label>
+    <div class="user-input-box">
+      <label for="password">Duration(in hrs)</label>
       <input type="text" class="form-control" id="inputAddress" ngModel name="prgDuration">
     </div>
-    
-    <div class="col-12"></div>
-  
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Number of students participated<span style="color:black"><b>*</b></span></label>
+    <div class="user-input-box">
+      <label for="password">Number of students participated</label>
       <input type="text" class="form-control" id="inputAddress" ngModel name="num_std">
     </div>
-    <div class="col-3"></div>
-  
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Number of Faculty participated<span style="color:black"><b>*</b></span></label>
+    <div class="user-input-box">
+      <label for="password">Number of Faculty participated</label>
       <input type="text" class="form-control" id="inputAddress" ngModel name="num_faculty">
     </div>
-  
-  
-    <div class="col-3"></div>
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Number of External person participated<span style="color:black"><b>*</b></span></label>
+    <div class="user-input-box">
+      <label for="password">Number of External person participated</label>
       <input type="number" class="form-control" id="inputAddress" ngModel name="num_externals">
     </div>
-    <div class="col-3"></div>
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Number of Resource persons participated<span style="color:black"><b>*</b></span></label>
+    <div class="user-input-box">
+      <label for="password">Number of Resource persons participated</label>
       <input type="text" class="form-control" id="inputAddress" ngModel name="num_rsrc_person">
     </div>
-    <div class="col-3"></div>
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Expenditure Amount<span style="color:black"><b>*</b></span></label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="(in words)" name="message" ngModel name="amount">
+    <div class="user-input-box">
+      <label for="password">Expenditure Amount</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="(in words)" name="message" ngModel
+        name="amount">
     </div>
-    
-    <div class="col-3"></div>
-    <div class="col-md-2">
-      <label for="inputState" class="form-label">Mode of Session<span style="color:black"><b>*</b></span></label>
+    <div class="user-input-box">
+      <label for="password">Mode of Session</label>
       <select id="inputState" class="form-select" name="mode_session" ngModel>
         <option></option>
         <option>online</option>
         <option>offline</option>
         <option>dual mode</option>
-  
       </select>
     </div>
-    
-  <div class="col-3"></div>
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Remarks</label>
-      <textarea rows="5" class="form-control" id="inputAddress" name="remarks" ngModel  > </textarea>
+    <div class="user-input-box">
+      <label for="password">Remarks</label>
+      <textarea rows="2" class="form-control" id="inputAddress" name="remarks" ngModel> </textarea>
     </div>
-    
-   
-    <h3>Over view</h3>
-  
-    <div class="col-5">
-      <label for="inputAddress" class="form-label">Objective</label>
+    <div class="user-input-box">
+      <label for="password">Objective</label>
       <input type="text" class="form-control" id="inputAddress" ngModel name="objective">
     </div>
-  
-    <div class="col-3"></div>
-  
-    <div class="col-4"></div>
-    <div class="col-5">
-      <label for="inputAddress" class="form-label">Benifits obtained in terms of Learning/knowledge/Skills </label>
-      <textarea rows="5" class="form-control" id="inputAddress" name="benifits" ngModel > </textarea>
+    <div class="user-input-box">
+      <label for="password">Benifits obtained in terms of Learning/knowledge/Skills </label>
+      <input type="text" class="form-control" id="inputAddress" name="benifits" n ngModel>
     </div>
-    <div class="col-3"></div>
-    <div class="col-3">
-      <label for="inputAddress" class="form-label">Link of report<span style="color:black"><b>*</b></span></label>
-      <input type="text" class="form-control" id="inputAddress"
-       ngModel name="images_url">
+    <div class="user-input-box">
+      <label for="confirmPassword">Photos/videos</label>
+      <input type="file" name="files" multiple id="files" accept="image/*, video/*" />
     </div>
-  
-          
-          <div class="col-12">
-            <input type="submit" class="btn btn-primary">
-          </div>
+
+  </div>
+  <div class="form-submit-btn">
+    <button type="button" value="Preview PDF" (click)="previewFormData(r)">preview</button>
+    <input type="submit" value="Submit Form">
+  </div>
+
 </form>
-</body>
+
+
+<!-- Preview section -->
+<div id="preview-section" style="display: none; width:50px">
+  <h2>PDF Preview</h2>
+  <!-- Preview content will appear here -->
+  <iframe id="pdf-preview" width="50%" height="50px"></iframe>
+</div>
+
+
+
+<script>
+  function previewFormData() {
+    // Get form values
+    const orgBy = document.querySelector('[name="orgBy"]').value;
+    const prgType = document.querySelector('[name="prgType"]').value;
+    const prgCoordinator = document.querySelector('[name="prgCoordinator"]').value;
+    const prgTheme = document.querySelector('[name="prgTheme"]').value;
+    const startDate = document.querySelector('[name="startDate"]').value;
+    const endDate = document.querySelector('[name="endDate"]').value;
+    const prgDuration = document.querySelector('[name="prgDuration"]').value;
+    const num_std = document.querySelector('[name="num_std"]').value;
+    const num_faculty = document.querySelector('[name="num_faculty"]').value;
+    const num_externals = document.querySelector('[name="num_externals"]').value;
+    const num_rsrc_person = document.querySelector('[name="num_rsrc_person"]').value;
+    const amount = document.querySelector('[name="amount"]').value;
+    const mode_session = document.querySelector('[name="mode_session"]').value;
+    const remarks = document.querySelector('[name="remarks"]').value;
+    const objective = document.querySelector('[name="objective"]').value;
+    const benefits = document.querySelector('[name="benefits"]').value;
+    const files = document.querySelector('[name="files"]').value;
+    // Capture other form values similarly for other fields
+
+    // Create a new jsPDF instance
+    const doc = new jsPDF();
+
+    // Construct the PDF content
+    let content = `
+Organized By: ${orgBy}
+Program Type: ${prgType}
+Program Coordinator: ${prgCoordinator}
+Program Theme: ${prgTheme}
+Start Date: ${startDate}
+End Date: ${endDate}
+Duration (in hrs): ${prgDuration}
+Number of students participated: ${num_std}
+Number of Faculty participated: ${num_faculty}
+Number of External persons participated: ${num_externals}
+Number of Resource persons participated: ${num_rsrc_person}
+Expenditure Amount (in words): ${amount}
+Mode of Session: ${mode_session}
+Remarks: ${remarks}
+Objective: ${objective}
+Benefits obtained in terms of Learning/Knowledge/Skills: ${benefits}
+
+`;
+
+    // Set font and add content to the PDF
+    doc.setFont('helvetica');
+    doc.setFontSize(12);
+    doc.text(content, 10, 10);
+
+    // Display the PDF in the iframe for preview
+    const pdfData = doc.output('datauristring');
+    const iframe = document.getElementById('pdf-preview');
+    iframe.src = pdfData;
+
+    // Show the preview section
+    document.getElementById('preview-section').style.display = 'block';
+
+    // Prevent form submission for now
+    return false;
+  }
+</script>

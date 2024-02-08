@@ -37,6 +37,9 @@ export class EventsService {
   Read(orgBy: String): Observable<Read> {
     return this.http.get<Read>(`${this.url}events/Read${orgBy}`);
   }
+  Read0(orgBy: String): Observable<Read> {
+    return this.http.get<Read>(`${this.url}events/0Read${orgBy}`);
+  }
   Read1(orgBy: String): Observable<Read> {
     return this.http.get<Read>(`${this.url}events/1Read${orgBy}`);
   }
@@ -45,6 +48,12 @@ export class EventsService {
   }
   Read4(prgTheme: String): Observable<Read> {
     return this.http.get<Read>(`${this.url}events/4Read${prgTheme}`);
+  }
+  Read5(startDate: String): Observable<Read> {
+    return this.http.get<Read>(`${this.url}events/5Read${startDate}`);
+  }
+  Read6(mode_session: String): Observable<Read> {
+    return this.http.get<Read>(`${this.url}events/6Read${mode_session}`);
   }
   Delete(orgby: String): Observable<InsertedSuccess> {
     console.log(`${this.url}events/Delete${orgby}`);

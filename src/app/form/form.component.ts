@@ -1,77 +1,71 @@
-import { Component,OnInit,OnDestroy } from '@angular/core';
+// form.component.ts
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventsService } from '../events.service';
 import { Subscription } from 'rxjs';
-import { InsertedSuccess,UniqueConstraintError,events} from '../events';
-import{NgForm}from '@angular/forms'
+import { InsertedSuccess, UniqueConstraintError, events } from '../events';
+import { NgForm } from '@angular/forms';
+import jsPDF from 'jspdf';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit,OnDestroy {
-  constructor(private Service: EventsService) {}
+export class FormComponent implements OnInit, OnDestroy {
+  public showPreview: boolean = false;
+  public pdfPreviewUrl: string = '';
+  public formData: any = {};
+  private subscription: Subscription = new Subscription();
+
+  constructor(private service: EventsService) {}
+
   ngOnInit() {}
-  Subscription: Subscription = new Subscription();
-  User: events = {
-   
-    orgBy:'',                                  
-    prgCoordinator :'',                           
-    prgType:'',                                    
-    prgTheme:'',                                  
-    startDate:'',                                 
-    endDate  :'',                                 
-    prgDuration :'',                              
-    num_std :'',                                  
-    num_faculty :'',                             
-    num_externals  :'',                         
-     num_rsrc_person :'',                         
-    amount :'',                                   
-     mode_session :'',                         
-    remarks  :'',                                         
-    objective:'',                       
-    benifits  :'',                                
-    images_url:'',   
 
-
-
-
-  };
-  SuccessMsg = '';
-  ErrorMsg = '';
-
-
-  Insert(Form:NgForm) {
-    this.ErrorMsg = '';
-    this.SuccessMsg = '';
-
-    //   this.Subscription = this.Service.Insert(this.User).subscribe(
-    //     (data)=>{
-    //       if(data){
-    //         console.log(data);
-    //       }
-    //       else{
-    //         console.log("Failed");
-    //       }
-    //     }
-    //   )
-    // }
-console.log(Form.value);
-    this.Subscription = this.Service.Insert(Form.value).subscribe({
-      next: (Data: InsertedSuccess | UniqueConstraintError) => {
-        if ('errorNum' in Data) {
-          this.ErrorMsg = `${this.User.orgBy} alredy Exists`;
-        } else {
-          this.SuccessMsg = `${this.User.orgBy} Inserted Succesfully`;
-        }
-      },
-      error: (Error) => {
-        console.log(Error);
-      },
-    });
-    // this the another syntax for the Subscribe Its advanced Handling everything
-  }
-  
   ngOnDestroy() {
-    this.Subscription.unsubscribe();
+    this.subscription.unsubscribe();
+  }
+
+  Insert(form: NgForm) {
+    // Your Insert logic here
+  }
+
+  previewFormData(form: NgForm) {
+    const userFormData = form.value; // Get form values
+
+    // Create a new jsPDF instance
+    const doc = new jsPDF();
+
+    // Construct the PDF content
+    let content = `
+      Organized By: ${userFormData.orgBy}
+      Program Type: ${userFormData.prgType}
+      Program Coordinator: ${userFormData.prgCoordinator}
+      Program Theme: ${userFormData.prgTheme}
+      Start Date: ${userFormData.startDate}
+      End Date: ${userFormData.endDate}
+      Duration (in hrs): ${userFormData.prgDuration}
+      Number of students participated: ${userFormData.num_std}
+      Number of Faculty participated: ${userFormData.num_faculty}
+      Number of External persons participated: ${userFormData.num_externals}
+      Number of Resource persons participated: ${userFormData.num_rsrc_person}
+      Expenditure Amount (in words): ${userFormData.amount}
+      Mode of Session: ${userFormData.mode_session}
+      Remarks: ${userFormData.remarks}
+      Objective: ${userFormData.objective}
+      Benefits obtained in terms of Learning/Knowledge/Skills: ${userFormData.benefits}
+    `;
+
+    // Set font and add content to the PDF
+    doc.setFont('helvetica');
+    doc.setFontSize(12);
+    doc.text(content, 10, 10);
+
+    // Save the PDF
+    doc.save('preview.pdf');
+
+    // Set the PDF preview URL and show the preview section
+    this.pdfPreviewUrl = doc.output('datauristring');
+    this.showPreview = true;
   }
 }

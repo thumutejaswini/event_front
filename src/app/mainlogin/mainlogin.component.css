@@ -1,8 +1,20 @@
 span{
-    color:white;
+    color:bisque;
     margin: 25px 30px;
     font-size: larger;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
 }
 body{
     background-color:black;
+   /* background-image: url("https://images.unsplash.com/photo-1607499699372-7bb722dff7e2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1ZSUyMCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D"); */
+    background-size: 1500px;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190628/ourmid/pngtree-original-square-diamond-pure-black-banner-background-image_273735.jpg");
+}
+img{
+    width: 180px;
+    height: 180px;
 }

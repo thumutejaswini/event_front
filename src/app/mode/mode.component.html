@@ -17,18 +17,18 @@
 
 
 
-
 <div class="d-block mx-auto w-50">
-    <label for="orgBy"></label>
-    <input type="text" name="orgBy" id="orgBy" class="form-control" [(ngModel)]="orgBy"
+    <label for="mode_session">mode_session</label>
+    <input type="text" name="mode_session" id="mode_session" class="form-control" [(ngModel)]="mode_session"
        >
     <div class="d-flex my-2">
         <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
-        <!-- <input type="submit" [value]="'Get '+ orgBy" class="btn btn-primary mx-1" (click)="Read(orgBy)"> -->
+        <input type="submit" [value]="'Get '+ mode_session" class="btn btn-primary mx-1" (click)="Read(mode_session)">
     </div>
     <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
 </div>
-<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+
+<table class="table w-50  mx-auto" *ngIf="Results6.length!=0 && GotResult">
     <thead class="thead-dark">
         <tr>
             <th scope="col">orgBy</th>
@@ -52,16 +52,17 @@
             </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let Data of Results">
-            <th scope="row">{{Data[0]}}</th>
-            <th>{{Data[1]}}</th>
-            <th>{{Data[2]}}</th>
-            <th>{{Data[3]}}</th>
-            <th>{{Data[4]}}</th>
-            <th>{{Data[5]}}</th>
-            <th>{{Data[6]}}</th>
-            <th>{{Data[7]}}</th>
-            <th>{{Data[8]}}</th>
+        <tr *ngFor="let Data of Results6">
+            
+            <td scope="row">{{Data[0]}}</td>
+            <td>{{Data[1]}}</td>
+            <td>{{Data[2]}}</td>
+            <td>{{Data[3]}}</td>
+            <td>{{Data[4]}}</td>
+            <td>{{Data[5]}}</td>
+            <td>{{Data[6]}}</td>
+            <td>{{Data[7]}}</td>
+            <td>{{Data[8]}}</td>
             <th>{{Data[9]}}</th>
             <th>{{Data[10]}}</th>
             <th>{{Data[11]}}</th>
@@ -74,12 +75,14 @@
 
             <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
             </td>
-            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read6( Data[0])">
                     Update
                 </button>
             </td>
         </tr>
     </tbody>
+
+    
 </table>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -110,10 +113,14 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(orgBy,UpdatedUser)">Save changes</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(mode_session,UpdatedUser)">Save changes</button>
         </div>
       </div>
     </div>
   </div>
+
+
+
+
 
 <!-- <router-outlet></router-outlet> -->
